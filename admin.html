@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messages reçus — Admin Philia Host</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css?v=4">
+<style>
+  body { padding-bottom: 80px; }
+  .admin-wrap { max-width: 1000px; margin: 0 auto; padding: 60px 28px; }
+  .admin-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+  .admin-header img { height: 44px; }
+  .msg-table { width: 100%; border-collapse: collapse; background: var(--color-surface); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .msg-table th, .msg-table td { text-align: left; padding: 14px 16px; font-size: 0.88rem; border-bottom: 1px solid var(--color-line); vertical-align: top; }
+  .msg-table th { background: var(--color-bg-alt); font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.72rem; color: var(--color-ink-soft); }
+  .msg-table tr:last-child td { border-bottom: none; }
+  .msg-table td.msg-cell { max-width: 320px; white-space: pre-wrap; }
+  .msg-date { color: var(--color-ink-soft); font-size: 0.8rem; white-space: nowrap; }
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--color-ink-soft); }
+  .admin-actions { display: flex; gap: 12px; }
+  .pill-count { display: inline-flex; align-items: center; gap: 8px; background: var(--color-primary-tint); color: var(--color-primary-dark); padding: 6px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <div class="admin-header">
+      <a href="/index.html" class="brand" style="display:flex;align-items:center;gap:12px;">
+        <img src="/assets/logo-transparent.png" alt="Philia Host">
+        <div>
+          <h1 style="font-size:1.4rem;margin:0;">Messages reçus</h1>
+        </div>
+      </a>
+      <div class="admin-actions">
+        <span class="pill-count" id="msg-count">—</span>
+        <button class="btn btn-outline-dark" id="refresh-btn" type="button">Actualiser</button>
+        <a class="btn btn-ghost" href="/admin/logout">Déconnexion</a>
+      </div>
+    </div>
+
+    <div id="table-wrap">
+      <p class="empty-state">Chargement…</p>
+    </div>
+  </div>
+
+<script>
+async function loadMessages() {
+  const wrap = document.getElementById("table-wrap");
+  const count = document.getElementById("msg-count");
+  wrap.innerHTML = '<p class="empty-state">Chargement…</p>';
+  try {
+    const res = await fetch("/api/admin/messages", { credentials: "include" });
+    const data = await res.json();
+    const messages = data.messages || [];
+    count.textContent = messages.length + (messages.length > 1 ? " messages" : " message");
+
+    if (!messages.length) {
+      wrap.innerHTML = '<p class="empty-state">Aucun message reçu pour le moment.</p>';
+      return;
+    }
+
+    const rows = messages.map(function (m) {
+      return (
+        "<tr>" +
+        '<td class="msg-date">' + new Date(m.created_at + "Z").toLocaleString("fr-FR") + "</td>" +
+        "<td>" + escapeHtml(m.name) + "</td>" +
+        '<td><a href="mailto:' + escapeHtml(m.email) + '">' + escapeHtml(m.email) + "</a></td>" +
+        "<td>" + (m.phone ? escapeHtml(m.phone) : "—") + "</td>" +
+        "<td>" + (m.subject ? escapeHtml(m.subject) : "—") + "</td>" +
+        '<td class="msg-cell">' + escapeHtml(m.message) + "</td>" +
+        "</tr>"
+      );
+    }).join("");
+
+    wrap.innerHTML =
+      '<table class="msg-table"><thead><tr>' +
+      "<th>Date</th><th>Nom</th><th>Email</th><th>Téléphone</th><th>Sujet</th><th>Message</th>" +
+      "</tr></thead><tbody>" + rows + "</tbody></table>";
+  } catch (e) {
+    wrap.innerHTML = '<p class="empty-state">Erreur de chargement des messages.</p>';
+  }
+}
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str || "";
+  return div.innerHTML;
+}
+
+document.getElementById("refresh-btn").addEventListener("click", loadMessages);
+loadMessages();
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estimez vos revenus — Philia Host</title>
+<meta name="description" content="Estimez gratuitement les revenus locatifs potentiels de votre bien à Tanger grâce au simulateur Philia Host.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=4">
+</head>
+<body>
+
+<header class="site-header is-solid">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/logo-transparent.png" alt="Philia Host"></a>
+    <nav class="nav-desktop">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Nos Services</a>
+      <a href="estimate.html" class="is-active">Estimation</a>
+      <a href="about.html">À Propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="contact.html" class="btn btn-header">Nous contacter</a>
+      <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Nos Services</a>
+  <a href="estimate.html">Estimation</a>
+  <a href="about.html">À Propos</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-gold">Nous contacter</a>
+</div>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Estimation</div>
+      <div class="eyebrow mx-auto">Simulateur Gratuit</div>
+      <h1>Estimez les revenus de votre bien à Tanger</h1>
+      <p class="lede mx-auto">Renseignez quelques informations pour obtenir une estimation indicative de vos revenus locatifs mensuels.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <form id="estimate-form" class="calc-panel reveal" novalidate>
+        <div class="calc-inputs">
+          <div class="eyebrow">Votre bien</div>
+          <h2 style="font-size:1.6rem; margin-bottom:28px;">Parlez-nous de votre logement</h2>
+
+          <div class="form-field" style="margin-bottom:22px;">
+            <label for="bedrooms">Nombre de chambres</label>
+            <select id="bedrooms" name="bedrooms">
+              <option value="1">Studio / 1 chambre</option>
+              <option value="2" selected>2 chambres</option>
+              <option value="3">3 chambres</option>
+              <option value="4">4 chambres et +</option>
+            </select>
+          </div>
+
+          <div class="form-field" style="margin-bottom:22px;">
+            <label for="zone">Quartier</label>
+            <select id="zone" name="zone">
+              <option value="centre">Centre-ville</option>
+              <option value="corniche" selected>Corniche</option>
+              <option value="malabata">Malabata</option>
+              <option value="medina">Médina</option>
+              <option value="autre">Autre quartier</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="standing">Standing du bien</label>
+            <select id="standing" name="standing">
+              <option value="moyen">Standard</option>
+              <option value="haut" selected>Haut standing</option>
+              <option value="economique">Économique</option>
+            </select>
+          </div>
+
+          <p class="form-note">Cette estimation est indicative et basée sur les performances moyennes constatées sur notre portefeuille de biens gérés à Tanger. Une estimation précise nécessite une visite de votre logement.</p>
+        </div>
+
+        <div class="calc-result" id="calc-result-panel">
+          <div class="label">Revenu mensuel estimé</div>
+          <div class="amount" id="calc-amount">0 MAD</div>
+          <div class="range" id="calc-range">—</div>
+          <div class="breakdown">
+            <div><span>Taux d'occupation visé</span><span id="calc-occ">—</span></div>
+            <div><span>Tarif moyen par nuit</span><span id="calc-adr">—</span></div>
+            <div><span>Nuits réservées / mois</span><span id="calc-nights">—</span></div>
+          </div>
+          <a href="contact.html" class="btn btn-gold btn-block" style="margin-top:30px;">Obtenir une estimation précise</a>
+          <p class="calc-disclaimer">*Estimation à titre indicatif, données approximatives soumises à variation saisonnière.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container about-grid">
+      <div class="reveal">
+        <div class="eyebrow">Pourquoi cette estimation</div>
+        <h2>Une méthode basée sur la réalité du marché de Tanger</h2>
+        <p class="lede" style="margin-top:18px;">Notre simulateur s'appuie sur les tarifs moyens, les taux d'occupation et les tendances observées sur les biens que nous gérons, quartier par quartier.</p>
+        <ul class="value-list" style="margin-top:26px;">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Données mises à jour selon la saisonnalité</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Ajustées selon le quartier et le standing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Affinées lors d'une visite gratuite de votre bien</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="value-visual tone-primary" style="aspect-ratio:4/5;">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div>
+          <h2>Besoin d'une estimation précise ?</h2>
+          <p class="lede">Planifions une visite gratuite de votre bien pour affiner cette estimation.</p>
+        </div>
+        <a href="contact.html" class="btn btn-outline">Planifier une visite</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo-transparent.png" alt="Philia Host">
+        <p>Conciergerie et gestion locative Airbnb haut de gamme à Tanger.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/212700777048" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.6c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1 .1 1.4-.1.4-.2 1.2-.5 1.4-1 .2-.5.2-.9.1-1Z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="tel:+212700777048" aria-label="Téléphone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8.3 6.7 15 15 15l3-3.5-5-3-2 2a12 12 0 0 1-6.5-6.5l2-2-3-5Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="services.html">Nos Services</a></li>
+          <li><a href="estimate.html">Estimation</a></li>
+          <li><a href="about.html">À Propos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#annonce">Annonce &amp; Optimisation</a></li>
+          <li><a href="services.html#menage">Ménage &amp; Linge</a></li>
+          <li><a href="services.html#communication">Communication</a></li>
+          <li><a href="services.html#tarification">Tarification</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+212700777048">+212 7 00 77 70 48</a></li>
+          <li><a href="mailto:contact@philiahost.com">contact@philiahost.com</a></li>
+          <li><a href="contact.html">Tanger, Maroc</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Philia Host. Tous droits réservés.</span>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Conditions générales</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/212700777048" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.6c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.2 1.6 2.5 4 3.4.6.2 1 .4 1.3.5.6.2 1 .1 1.4-.1.4-.2 1.2-.5 1.4-1 .2-.5.2-.9.1-1Z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
