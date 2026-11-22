@@ -480,11 +480,11 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
   text-align: center;
   position: relative;
   background:
-    linear-gradient(160deg, rgba(74,23,41,0.88) 0%, rgba(35,29,12,0.90) 100%),
-    url("../assets/photos/value-time.jpg") center 30% / cover no-repeat;
-  color: #fff;
+    linear-gradient(100deg, rgba(251,247,238,0.94) 0%, rgba(251,247,238,0.7) 45%, rgba(251,247,238,0.4) 100%),
+    url("../assets/photos/hero-wave-cream.jpg") center / cover no-repeat;
+  color: var(--color-ink);
 }
-.platforms-band h2 { color: #fff; margin-bottom: 40px; }
+.platforms-band h2 { margin-bottom: 40px; }
 .platforms-row {
   display: flex;
   align-items: center;
@@ -497,16 +497,17 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
   align-items: center;
   gap: 14px;
   padding: 18px 38px;
-  border: 1px solid rgba(196,214,94,0.4);
+  border: 1px solid var(--color-line);
   border-radius: 999px;
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
-  color: #fff;
-  background: rgba(255,255,255,0.06);
+  color: var(--color-primary-dark);
+  background: rgba(255,255,255,0.75);
+  box-shadow: var(--shadow-sm);
 }
-.platform-badge svg { width: 30px; height: 30px; color: #C4D65E; flex: none; }
-.platform-divider { color: rgba(196,214,94,0.6); font-size: 0.8rem; }
+.platform-badge svg { width: 30px; height: 30px; color: var(--color-gold-dark); flex: none; }
+.platform-divider { color: var(--color-gold-dark); font-size: 0.8rem; }
 
 /* -------------------- Section spacing -------------------- */
 .section { padding: 110px 0; }
@@ -537,15 +538,18 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
   aspect-ratio: 5/4;
   border-radius: var(--radius-lg);
   background:
-    linear-gradient(165deg, rgba(74,23,41,0.78), rgba(46,14,26,0.82)),
-    url("../assets/photos/value-time.jpg") center / cover no-repeat;
+    linear-gradient(100deg, rgba(251,247,238,0.92) 0%, rgba(251,247,238,0.55) 100%),
+    url("../assets/photos/hero-wave-cream.jpg") center / cover no-repeat;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-line);
 }
+.value-visual:not([class*="tone-"]) .icon-wrap { color: var(--color-primary-dark); }
+.value-visual:not([class*="tone-"]) .value-num { color: var(--color-ink-soft); }
 .value-visual.tone-primary {
   background:
     linear-gradient(165deg, rgba(178,40,74,0.76), rgba(125,26,52,0.82)),
